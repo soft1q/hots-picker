@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { removeHero } from '../../actions/pick'
 
 export class BlueTeam extends Component {
     render() {
 		const picked = this.props.blue_picks
 		const heroes = this.props.heroes
 		let table = []
-		let icon = {}
+		let icon
 		for(let i = 0; i < 5; i++) {
 			if (i < picked.length) {
 				icon = (<td>
-					<div className="box polygon">
+					<div className="box polygon" onClick={this.props.removeHero.bind(this, picked[i], 'blue')}>
 						<img src={heroes[picked[i]].icon}/>
 					</div>
 				</td>)
@@ -49,4 +49,4 @@ const mapStateToProps = state => ({
     blue_picks: state.pick.blue_picks
 });
 
-export default connect(mapStateToProps)(BlueTeam);
+export default connect(mapStateToProps, { removeHero })(BlueTeam);

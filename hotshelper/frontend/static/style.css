@@ -151,4 +151,13 @@ body {
 
 .polygon {
 	-webkit-clip-path: polygon(50% 6%, 94% 29%, 94% 75%, 50% 100%, 7% 75%, 7% 29%);
+	-webkit-transition: .3s ease-in-out opacity;
+    -moz-transition: .3s ease-in-out opacity;
+    -o-transition: .3s ease-in-out opacity;
+	transition: .3s ease-in-out opacity;
+	cursor: pointer;
+}
+
+.polygon:hover {
+	opacity: 0.5;
 }
