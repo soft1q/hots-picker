@@ -6,6 +6,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
+    
+    # API
     path('', include('heroes.urls')),
     path('', include('history.urls')),
     path('', include('accounts.urls'))
