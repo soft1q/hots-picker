@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '../../actions/auth';
 
 export class Login extends Component {
     state = {
@@ -9,12 +11,16 @@ export class Login extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log('submit')
+        console.log(this.state)
+        this.props.login(this.state.username, this.state.password)
     }
 
     onChange = e => this.setState({ [e.target.name]: e.target.value });
 
     render() {
+        if (this.props.isAuthenticated) {
+            return <Redirect to="/profile" />
+        }
         const { username, password } = this.state;
         return (
             <div>
@@ -57,4 +63,8 @@ export class Login extends Component {
     }
 }
 
-export default Login
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated 
+})
+
+export default connect(mapStateToProps, { login })(Login)

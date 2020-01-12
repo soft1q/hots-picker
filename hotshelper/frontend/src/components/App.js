@@ -9,12 +9,18 @@ import Picker from './picker/Picker';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
 import Profile from './profile/Profile';
+import PrivateRoute from './common/PrivateRoute'
 
 
 import { Provider } from 'react-redux';
 import store from '../store';
+import { loadUser } from '../actions/auth'
 
 class App extends React.Component {
+    componentDidMount() {
+        store.dispatch(loadUser());
+    }
+
     render() {
         return (
             <Provider store={store}>
@@ -25,7 +31,7 @@ class App extends React.Component {
                             <Route exact path="/" component={Picker} />
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />
-                            <Route exact path="/profile" component={Profile} />
+                            <PrivateRoute exact path="/profile" component={Profile} />
                         </Switch>
                     </Fragment>
                 </Router>

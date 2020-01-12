@@ -385,7 +385,7 @@ body {
 /* Profile page styles*/
 
 div.profile {
-	margin: 100px;
+	margin: 20px;
 }
 
 body.profile {
@@ -469,12 +469,25 @@ body.profile {
 }
 
 .profile .back_button_back{
-background: linear-gradient(to bottom, #ffb252, #ff8c52);
-position: absolute;
-right: 1%;
-top: 0;
-height: 5%;
-color: #fff;
-text-shadow: 0 1px 4px rgba(0, 0, 51, 0.4);
-padding: 2px; 
+	background: linear-gradient(to bottom, #ffb252, #ff8c52);
+	position: absolute;
+	right: 1%;
+	top: 0;
+	height: 5%;
+	color: #fff;
+	text-shadow: 0 1px 4px rgba(0, 0, 51, 0.4);
+	padding: 2px; 
 }
+
+.profile .back_button_back_1{
+	background: linear-gradient(to bottom, #ffb252, #ff8c52);
+	position: absolute;
+	right: 1%;
+	bottom: 0;
+	height: 5%;
+	color: #fff;
+	text-shadow: 0 1px 4px rgba(0, 0, 51, 0.4);
+	padding: 2px;
+	cursor: pointer; 
+}
+	
