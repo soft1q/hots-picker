@@ -40,7 +40,7 @@ body {
 	color: #fff;
 	text-shadow: 0 1px 4px rgba(0, 0, 51, 0.4);
 	padding: 2px;
-
+	cursor: pointer;
 }
 .button {
 	background: linear-gradient(to bottom, #ff9500, #ff5500);
@@ -406,15 +406,20 @@ body.profile {
     border: 4px solid #FF7373; 
 }
 
-.profile .red_w {
+.profile .red {
     padding: 3px; 
     border: 4px solid #FF7373; 
-    border-right: 4px solid white;
 }
 
 .profile .blue {
     padding: 3px; 
-    border: 4px solid #679ED2; 
+	border: 4px solid #679ED2; 
+}
+
+.profile .blue_w {
+    padding: 3px; 
+	border: 4px solid #679ED2; 
+	border-right: 4px solid white;
 }
 
 .profile td {

@@ -1,100 +1,127 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getHistory, deleteRecord } from '../../actions/history'
+import { getHeroes } from '../../actions/heroes'
 
 export class History extends Component {
+
+    componentDidMount() {
+        this.props.getHistory()
+        this.props.getHeroes()
+    }
+
     render() {
+        let table = []
+        const records = this.props.history
+        records.forEach(record => {
+            table.push(
+                <tr key={record.id}>
+                    <td className = "blue">
+                        <div className="box polygon"> 
+                            <img src={
+                                this.props.heroes.filter(hero => 
+                                    hero.id == record.hero_1
+                                )[0].icon
+                            } />             
+                        </div>
+                    </td>
+                    <td className="blue">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_2
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="blue">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_3
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="blue">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_4
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="blue_w">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_5
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+
+                    <td className="red">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_6
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="red">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_7
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="red">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_8
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="red">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_9
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td className="red">
+                        <div className="box polygon">
+                            <img src={
+                                this.props.heroes.filter(hero =>
+                                    hero.id == record.hero_10
+                                )[0].icon
+                            } />
+                        </div>
+                    </td>
+                    <td>
+                        <button className="button_back" type="reset" onClick={this.props.deleteRecord.bind(this, record.id)}>
+                            <div className="button">
+                                <div className="button_text">Удалить</div>
+                            </div>
+                        </button>
+                    </td>
+                </tr>            
+            )
+        });
         return (
             <div className="profile">
                 <table align="center">
                     <tbody>
-                        <tr>
-                            <td className = "red">
-                                <div className="box polygon"> 
-                                    <img src="images/6.jpg" />
-                                </div>
-                            </td>
-                            <td className = "red">
-                                <div className="box polygon"> 
-                                    <img src="images/7.jpg" />
-                                </div>
-                            </td>
-                            <td className = "red">
-                                <div className="box polygon"> 
-                                    <img src="images/8.jpg" />
-                                </div>
-                            </td>
-                            <td className = "red">
-                                <div className="box polygon"> 
-                                    <img src="images/9.jpg" />
-                                </div>
-                            </td>
-                            <td className = "red_w">
-                                <div className="box polygon"> 
-                                    <img src="images/1.jpg" />
-                                </div>
-                            </td>
-
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" /> 
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td>
-                                <button className = "button_back" type="reset">
-                                    <div className = "button">
-                                        <div className = "button_text">Удалить</div>
-                                    </div>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className = "red">
-                                <img src="ромбики.png" alt="Ой" width="90%" /> 
-                            </td>
-                            <td className = "red">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "red">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "red">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "red_w">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" /> 
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td className = "blue">
-                                <img src="ромбики.png" alt="Ой" width="90%" />
-                            </td>
-                            <td>
-                                <button className = "button_back" type="reset">
-                                    <div className = "button">
-                                        <div className = "button_text">Удалить</div>
-                                    </div>
-                                </button>
-                            </td>
-                        </tr>
+                        {table}
                     </tbody>
                 </table>
             </div>
@@ -102,4 +129,9 @@ export class History extends Component {
     }
 }
 
-export default History
+const mapStateToProps = state => ({
+    history: state.history.records,
+    heroes: state.heroes.heroes
+})
+
+export default connect(mapStateToProps, { getHistory, getHeroes, deleteRecord })(History)

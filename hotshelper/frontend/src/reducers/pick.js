@@ -43,7 +43,6 @@ export default function(state = initialState, action) {
                     return state;
             }
         case REMOVE_HERO:
-            let copy
             switch(action.payload.team) {
                 case 'blue':
                     return {
@@ -51,8 +50,6 @@ export default function(state = initialState, action) {
                         blue_picks: state.blue_picks.filter(hero_id => hero_id !== action.payload.hero_id)
                     }
                 case 'red':
-                    copy = state.red_picks
-                    copy.splice(state.red_picks.indexOf(action.payload.hero_id), 1)
                     return {
                         ...state,
                         red_picks: state.red_picks.filter(hero_id => hero_id !== action.payload.hero_id)

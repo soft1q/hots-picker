@@ -10,7 +10,7 @@ class RecordViewSet(viewsets.ModelViewSet):
     serializer_class = RecordSerializer
 
     def get_queryset(self):
-        return self.request.user.history.all()
+        return self.request.user.records.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

@@ -94,7 +94,6 @@ export const logout = () => (dispatch, getState) => {
             'Content-Type': 'application/json'
         }
     }
-
     if (token) {
         config.headers['Authorization'] = `Token ${token}`;
     }

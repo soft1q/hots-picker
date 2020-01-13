@@ -9,3 +9,6 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
+export const ADD_RECORD = "ADD_RECORD";
+export const DELETE_RECORD = "DELETE_RECORD";
+export const GET_HISTORY = "GET_HISTORY";
